@@ -76,9 +76,18 @@ class SupabaseLoader:
         print(f"[Loader] Starting load of {total} records into '{table}'...")
         
         # Convert DataFrame to list of dicts (Supabase expects this format)
-        records = df.where(pd.notna(df), None).to_dict(orient="records")
-        # df.where(pd.notna(df), None) converts NaN → None
-        # Supabase/Postgres treats None as NULL, but NaN would cause an error
+        raw_records = df.to_dict(orient="records")
+        records = []
+        for record in raw_records:
+            clean_record = {}
+            for k, v in record.items():
+                if pd.isna(v):
+                    clean_record[k] = None
+                else:
+                    clean_record[k] = v
+            records.append(clean_record)
+        
+        # Supabase/Postgres treats None as NULL, but NaN would cause a JSON encoding error
         
         inserted = 0
         failed = 0

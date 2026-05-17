@@ -145,6 +145,11 @@ class JanAushadhiNormalizer:
         print(f"[Normalizer] Loaded {len(df)} raw records")
         print(f"[Normalizer] Columns found: {list(df.columns)}")
         
+        if len(df) == 0:
+            print("[Normalizer] ⚠️ Warning: The raw CSV contains 0 records (only headers).")
+            print("[Normalizer] Skipping normalization. Please check the scraper step.")
+            return df
+
         # ── Step 2: Standardize column names ──────────────────────────────────
         # Different govt CSV exports use different header names.
         # We map them all to standard internal names.

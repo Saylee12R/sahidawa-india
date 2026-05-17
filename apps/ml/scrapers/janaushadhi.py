@@ -71,6 +71,7 @@ class JanAushadhiScraper:
         Raises:
             TimeoutError: If the page doesn't load or CSV button isn't found
         """
+        
         async with async_playwright() as p:
             # Launch headless Chromium browser
             # headless=True means no visible browser window — runs in background
@@ -87,7 +88,11 @@ class JanAushadhiScraper:
             page = await context.new_page()
 
             print(f"[JanAushadhi] Navigating to: {TARGET_URL}")
-            await page.goto(TARGET_URL, wait_until="networkidle", timeout=60_000)
+            # CHANGED: 'domcontentloaded' is much more reliable here than 'networkidle'.
+            # The Jan Aushadhi website loads external maps and translation scripts (like Bhashini)
+            # that continuously poll/stream data. 'networkidle' waits until there are no requests
+            # for 500ms, which NEVER happens because of these scripts, causing a 60s timeout.
+            await page.goto(TARGET_URL, wait_until="domcontentloaded", timeout=60_000)
 
             print("[JanAushadhi] Page loaded. Waiting for medicine table...")
             # FIX: Jan Aushadhi uses 'react-data-table-component' — NOT a standard <table>.
@@ -102,6 +107,11 @@ class JanAushadhiScraper:
             print("[JanAushadhi] Table rows detected. Counting loaded records...")
             row_count = await page.locator(".rdt_TableRow").count()
             print(f"[JanAushadhi] Visible rows: {row_count} (total ~2439 in memory)")
+
+            print("[JanAushadhi] Waiting 5 seconds for React to hydrate full data...")
+            # We must wait for the background API to finish populating the table's state.
+            # Otherwise, the CSV export clicks too early and downloads an empty file (only headers).
+            await page.wait_for_timeout(5000)
 
             print("[JanAushadhi] Clicking 'Download Files' → 'Download CSV'...")
 

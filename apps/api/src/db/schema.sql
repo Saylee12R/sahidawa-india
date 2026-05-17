@@ -13,7 +13,7 @@ CREATE EXTENSION IF NOT EXISTS pg_trgm;
 CREATE TABLE IF NOT EXISTS medicines (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     barcode_id VARCHAR(100) UNIQUE, -- EAN/UPC barcode
-    brand_name VARCHAR(255) NOT NULL,
+    brand_name VARCHAR(255),
     generic_name VARCHAR(500) NOT NULL,
     manufacturer VARCHAR(255) NOT NULL,
     batch_number VARCHAR(100),
@@ -62,6 +62,9 @@ CREATE INDEX IF NOT EXISTS idx_pharmacies_location ON pharmacies USING GIST(loca
 CREATE INDEX IF NOT EXISTS idx_counterfeit_location ON counterfeit_reports USING GIST(report_location);
 CREATE INDEX IF NOT EXISTS idx_medicines_brand_name_trgm ON medicines USING gin (brand_name gin_trgm_ops);
 CREATE INDEX IF NOT EXISTS idx_medicines_generic_name_trgm ON medicines USING gin (generic_name gin_trgm_ops);
+
+-- Constraints for Upsert Operations
+ALTER TABLE medicines ADD CONSTRAINT idx_medicines_unique_variant UNIQUE NULLS NOT DISTINCT (generic_name, strength, dosage_form, source);
 
 -- 4. Barcode Mappings (Real-world scanning intelligence)
 CREATE TABLE IF NOT EXISTS barcode_mappings (
