@@ -169,6 +169,30 @@ def test_stream_returns_cleanly_on_disconnect_message():
     assert websocket.sent_payloads == [{"type": "ready"}]
 
 
+def test_stream_returns_error_event_when_transcription_crashes(monkeypatch):
+    class BrokenModel:
+        def transcribe(self, audio, **kwargs):
+            raise RuntimeError("decoder backend exploded")
+
+    monkeypatch.setattr(
+        asr_router,
+        "create_streaming_audio_decoder",
+        lambda mime_type: FakeDecoder([np.ones(16000, dtype=np.float32) * 0.2]),
+    )
+    monkeypatch.setattr(asr_router, "get_model", lambda: BrokenModel())
+
+    with client.websocket_connect("/asr/stream?language=en-IN") as websocket:
+        websocket.send_text(json.dumps({"type": "start", "mimeType": "audio/webm"}))
+
+        assert websocket.receive_json() == {"type": "ready"}
+
+        websocket.send_bytes(b"chunk-1")
+
+        payload = websocket.receive_json()
+        assert payload["type"] == "error"
+        assert "failed to transcribe audio" in payload["error"].lower()
+
+
 def test_streaming_session_skips_silent_audio():
     decoder = FakeDecoder([np.zeros(16000, dtype=np.float32)])
     model = FakeModel([])
@@ -281,3 +305,50 @@ def test_streaming_session_final_transcript_merges_overlap():
 
     assert partial["transcript"] == "I have fever"
     assert final["transcript"] == "I have fever and cough"
+
+
+def test_streaming_decoder_finish_kills_stuck_process():
+    class FakeStdIn:
+        def __init__(self):
+            self.closed = False
+
+        def close(self):
+            self.closed = True
+
+    class FakeThread:
+        def __init__(self):
+            self.join_calls = []
+
+        def join(self, timeout):
+            self.join_calls.append(timeout)
+
+    class FakeProcess:
+        def __init__(self):
+            self.stdin = FakeStdIn()
+            self.wait_calls = []
+            self.terminate_calls = 0
+            self.kill_calls = 0
+
+        def wait(self, timeout):
+            self.wait_calls.append(timeout)
+            if len(self.wait_calls) < 3:
+                raise asr_router.subprocess.TimeoutExpired("ffmpeg", timeout)
+            return 0
+
+        def terminate(self):
+            self.terminate_calls += 1
+
+        def kill(self):
+            self.kill_calls += 1
+
+    decoder = asr_router.StreamingAudioDecoder.__new__(asr_router.StreamingAudioDecoder)
+    decoder._process = FakeProcess()
+    decoder._stdout_thread = FakeThread()
+    decoder.take_audio = lambda timeout_seconds: np.array([], dtype=np.float32)
+
+    result = decoder.finish(timeout_seconds=0.1)
+
+    assert result.size == 0
+    assert decoder._process.stdin.closed is True
+    assert decoder._process.terminate_calls == 1
+    assert decoder._process.kill_calls == 1

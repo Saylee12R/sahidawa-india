@@ -419,27 +419,39 @@ class StreamingAudioDecoder:
 
         return pcm16_bytes_to_float32(raw_audio)
 
+    def _wait_for_process_exit(self, timeout_seconds: float) -> None:
+        try:
+            self._process.wait(timeout=timeout_seconds)
+            return
+        except subprocess.TimeoutExpired:
+            self._process.terminate()
+
+        try:
+            self._process.wait(timeout=timeout_seconds)
+            return
+        except subprocess.TimeoutExpired:
+            self._process.kill()
+
+        try:
+            self._process.wait(timeout=timeout_seconds)
+        except subprocess.TimeoutExpired:
+            logger.warning(
+                "Streaming audio decoder did not exit after kill for mime_type=%s",
+                self.mime_type,
+            )
+
     def finish(self, timeout_seconds: float = 0.2) -> np.ndarray:
         if self._process.stdin is not None and not self._process.stdin.closed:
             self._process.stdin.close()
 
         self._stdout_thread.join(timeout_seconds)
-        try:
-            self._process.wait(timeout=timeout_seconds)
-        except subprocess.TimeoutExpired:
-            self._process.terminate()
-            self._process.wait(timeout=timeout_seconds)
+        self._wait_for_process_exit(timeout_seconds)
 
         return self.take_audio(timeout_seconds)
 
     def close(self) -> None:
         if self._process.poll() is None:
-            self._process.terminate()
-            try:
-                self._process.wait(timeout=0.2)
-            except subprocess.TimeoutExpired:
-                self._process.kill()
-                self._process.wait(timeout=0.2)
+            self._wait_for_process_exit(0.2)
 
 
 def create_streaming_audio_decoder(mime_type: str) -> StreamingAudioDecoder:
@@ -525,56 +537,68 @@ class StreamingAsrSession:
         if self.audio_buffer.size == 0:
             return self._build_response(self.committed_transcript)
 
-        segments, info = self.model_getter().transcribe(
-            self.audio_buffer,
-            language=language,
-            task="transcribe",
-            beam_size=WHISPER_BEAM_SIZE,
-            vad_filter=True,
-            vad_parameters=STREAM_VAD_PARAMETERS,
-        )
-        self.last_language = info.language
-        self.last_language_confidence = round(info.language_probability, 3)
-
-        analysis_end_seconds = self.buffer_start_seconds + (
-            len(self.audio_buffer) / STREAM_SAMPLE_RATE
-        )
-        stable_cutoff_seconds = float("inf")
-        if not final:
-            stable_cutoff_seconds = max(
-                self.committed_until_seconds,
-                analysis_end_seconds - self.commit_lag_seconds,
+        try:
+            segments, info = self.model_getter().transcribe(
+                self.audio_buffer,
+                language=language,
+                task="transcribe",
+                beam_size=WHISPER_BEAM_SIZE,
+                vad_filter=True,
+                vad_parameters=STREAM_VAD_PARAMETERS,
             )
+            self.last_language = info.language
+            self.last_language_confidence = round(info.language_probability, 3)
 
-        active_transcript = ""
-        for segment in segments:
-            text = str(segment.text).strip()
-            if not text:
-                continue
-
-            segment_start_seconds = self.buffer_start_seconds + max(float(segment.start), 0.0)
-            segment_end_seconds = max(
-                segment_start_seconds,
-                self.buffer_start_seconds + max(float(segment.end), 0.0),
+            analysis_end_seconds = self.buffer_start_seconds + (
+                len(self.audio_buffer) / STREAM_SAMPLE_RATE
             )
-
-            if segment_end_seconds <= self.committed_until_seconds + 1e-3:
-                continue
-
-            if segment_end_seconds <= stable_cutoff_seconds:
-                self.committed_transcript = merge_transcript_text(self.committed_transcript, text)
-                self.committed_until_seconds = max(
+            stable_cutoff_seconds = float("inf")
+            if not final:
+                stable_cutoff_seconds = max(
                     self.committed_until_seconds,
-                    segment_end_seconds,
+                    analysis_end_seconds - self.commit_lag_seconds,
                 )
-            else:
-                active_transcript = merge_transcript_text(active_transcript, text)
 
-        full_transcript = merge_transcript_text(self.committed_transcript, active_transcript)
-        self.last_inference_audio_seconds = self.total_audio_seconds
-        self.pending_speech_since_inference = False
-        self._trim_audio_buffer()
-        return self._build_response(full_transcript)
+            active_transcript = ""
+            for segment in segments:
+                text = str(segment.text).strip()
+                if not text:
+                    continue
+
+                segment_start_seconds = self.buffer_start_seconds + max(float(segment.start), 0.0)
+                segment_end_seconds = max(
+                    segment_start_seconds,
+                    self.buffer_start_seconds + max(float(segment.end), 0.0),
+                )
+
+                if segment_end_seconds <= self.committed_until_seconds + 1e-3:
+                    continue
+
+                if segment_end_seconds <= stable_cutoff_seconds:
+                    self.committed_transcript = merge_transcript_text(
+                        self.committed_transcript,
+                        text,
+                    )
+                    self.committed_until_seconds = max(
+                        self.committed_until_seconds,
+                        segment_end_seconds,
+                    )
+                else:
+                    active_transcript = merge_transcript_text(active_transcript, text)
+
+            full_transcript = merge_transcript_text(self.committed_transcript, active_transcript)
+            self.last_inference_audio_seconds = self.total_audio_seconds
+            self.pending_speech_since_inference = False
+            self._trim_audio_buffer()
+            return self._build_response(full_transcript)
+        except HTTPException:
+            raise
+        except Exception as error:
+            logger.error("Streaming ASR transcription error: %s", error, exc_info=True)
+            raise HTTPException(
+                status_code=500,
+                detail=f"Failed to transcribe audio: {str(error)}",
+            ) from error
 
     def append_and_maybe_transcribe(
         self,
