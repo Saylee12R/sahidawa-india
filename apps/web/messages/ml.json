@@ -252,5 +252,118 @@
                 "answer": "CDSCO എന്നത് Central Drugs Standard Control Organisation എന്നതിന്റെ ചുരുക്കെഴുത്താണ്. ഇത് ഇന്ത്യയുടെ ദേശീയ ഔഷധ, ഫാർമസ്യൂട്ടിക്കൽ, മെഡിക്കൽ ഉപകരണ നിയന്ത്രണ സംഘടനയാണ്. SahiDawa ഇവരുടെ ഔദ്യോഗിക ഡേറ്റാബേസ് ഉപയോഗിച്ച് മരുന്നുകൾ പരിശോധിക്കുന്നു."
             }
         }
+    },
+    "Scan": {
+        "share": {
+            "avoid_and_report": "Please avoid and report to your nearest health worker.",
+            "batch_label": "Batch",
+            "button": "Share Result",
+            "copy_success": "Result copied to clipboard",
+            "failure": "Unable to share this result right now",
+            "manufacturer_label": "Manufacturer",
+            "real_status": "Verified REAL",
+            "shared_success": "Result shared successfully",
+            "suspicious_status": "Marked SUSPICIOUS",
+            "title": "SahiDawa Medicine Verification Result",
+            "unknown_batch": "Unknown batch",
+            "unknown_manufacturer": "Unknown manufacturer",
+            "unknown_medicine": "Unknown medicine",
+            "verified_by": "by SahiDawa",
+            "verify_yourself": "Verify yourself",
+            "warning_prefix": "WARNING"
+        }
+    },
+    "chat": {
+        "actions": {
+            "pharmacy": {
+                "description": "Locate verified stores",
+                "label": "Find Pharmacy"
+            },
+            "scan": {
+                "description": "Verify authenticity",
+                "label": "Scan Medicine"
+            },
+            "symptoms": {
+                "description": "AI-assisted guidance",
+                "label": "Check Symptoms"
+            }
+        },
+        "footer": "For informational use only • Consult a doctor",
+        "listening": "Listening... speak clearly",
+        "placeholder": "Type your health concern...",
+        "quick_actions": "Quick actions",
+        "welcome": "Namaste, I'm SahiDawa, your trusted health companion. I can help you verify medicines, understand symptoms, or find nearby care. What would you like help with today?"
+    },
+    "chatbot": {
+        "placeholder": "Ask me about a medicine...",
+        "status": "Online",
+        "title": "SahiDawa AI",
+        "welcome": "Hi! I am the SahiDawa AI Assistant. How can I help you with your medicines today?"
+    },
+    "about": {
+        "badge": "GSSoC 2026 Open Source Project",
+        "heroTitle": "About <highlight>SahiDawa</highlight>",
+        "heroSubtitle": "India's first open-source citizen medicine verifier & rural health bridge. Built for Bharat. Not just India.",
+        "features": {
+            "free": "100% Free. Forever.",
+            "languages": "22 Indian Languages",
+            "license": "Open Source MIT License"
+        },
+        "problemSection": {
+            "title": "The Problem We're Solving",
+            "description": "India has a three-layer healthcare crisis that no existing platform solves simultaneously."
+        },
+        "cards": {
+            "fakeMedicines": {
+                "title": "Fake Medicines",
+                "description": "12–25% of medicines in India are fake or substandard — putting 1.4 billion people at risk with zero citizen-facing verification tool."
+            },
+            "ruralHealthcare": {
+                "title": "Rural Healthcare Gap",
+                "description": "65% of India's population lives in rural areas with almost no qualified doctors — over 900 million people without accessible healthcare."
+            },
+            "languageBarrier": {
+                "title": "Language Barrier",
+                "description": "22 official languages — but health information is mostly in English or Hindi, leaving 500M+ non-Hindi speakers behind."
+            }
+        },
+        "realIncident": {
+            "title": "Real Incident — July 2025",
+            "text": "Delhi Police busted a counterfeit medicine ring supplying fake Johnson & Johnson and GSK medicines — made of chalk powder and starch — all the way into government hospitals. Patients had <highlight>zero way to verify</highlight> these medicines before consuming them.",
+            "highlight": "SahiDawa fixes this. For free. Forever. Open source."
+        },
+        "mission": {
+            "title": "Our Mission",
+            "description": "To empower every Indian citizen — regardless of language, location, or literacy — with the ability to instantly verify medicines, access qualified health guidance, and report counterfeit drugs in their community."
+        },
+        "vision": {
+            "title": "Our Vision",
+            "description": "A Bharat where no child dies from a fake medicine, no farmer's family is misdiagnosed for lack of a doctor, and no language is a barrier to healthcare. Free. Open. Forever."
+        },
+        "coreValues": {
+            "title": "Our Core Values",
+            "cards": {
+                "openSource": {
+                    "title": "Open Source",
+                    "description": "MIT Licensed. Always."
+                },
+                "freeForever": {
+                    "title": "Free Forever",
+                    "description": "No hidden costs. Ever."
+                },
+                "inclusive": {
+                    "title": "Inclusive",
+                    "description": "22 languages. All of Bharat."
+                },
+                "privacy": {
+                    "title": "Privacy First",
+                    "description": "No data sold. No ads."
+                }
+            }
+        },
+        "contactUs": {
+            "title": "Get In Touch",
+            "subtitle": "Have questions, ideas, or want to contribute? We'd love to hear from you."
+        }
     }
 }

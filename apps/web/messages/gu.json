@@ -135,8 +135,20 @@
             "timeout_title": "Voice request timed out",
             "timeout_message": "The voice service is taking longer than expected. Please try again or switch to text input.",
             "api_title": "SahiDawa AI અનુપલબ્ધ છે",
-            "api_message": "અમે હમણાં તબીબી માર્ગદર્શન મેળવી શક્યા નહીં. કૃપા કરીને થોડીવાર પછી ફરી પ્રયાસ કરો."
-        }
+            "api_message": "અમે હમણાં તબીબી માર્ગદર્શન મેળવી શક્યા નહીં. કૃપા કરીને થોડીવાર પછી ફરી પ્રયાસ કરો.",
+            "language_not_supported_title": "This browser cannot capture that voice language",
+            "language_not_supported_message": "{language} voice input is limited in this browser. Try Chrome or Edge, or start a new check with another voice language."
+        },
+        "skip_to_main_content": "Skip to main content",
+        "announcements": {
+            "recording_started": "Recording started",
+            "processing_started": "Processing your symptoms",
+            "results_ready": "Results ready"
+        },
+        "streaming_connecting_hint": "Connecting to live transcription…",
+        "streaming_live_hint": "Live transcript is updating",
+        "streaming_fallback_hint": "Connection is unstable. SahiDawa will finish processing after you stop speaking.",
+        "tts_fallback_message": "Your browser may read this summary aloud in a different voice because {language} text-to-speech support is limited."
     },
     "offline": {
         "bannerOffline": "તમે ઑફલાઇન છો",
@@ -270,5 +282,88 @@
                 "answer": "CDSCO નો અર્થ Central Drugs Standard Control Organisation થાય છે. તે કોસ્મેટિક્સ, ફાર્માસ્યુટિકલ્સ અને મેડિકલ ડિવાઇસીસ માટે ભારતનું રાષ્ટ્રીય નિયમનકારી સંગઠન છે. SahiDawa તેમની સત્તાવાર ડેટાબેઝ સામે દવાઓની ચકાસણી કરે છે."
             }
         }
+    },
+    "Scan": {
+        "share": {
+            "avoid_and_report": "Please avoid and report to your nearest health worker.",
+            "batch_label": "Batch",
+            "button": "Share Result",
+            "copy_success": "Result copied to clipboard",
+            "failure": "Unable to share this result right now",
+            "manufacturer_label": "Manufacturer",
+            "real_status": "Verified REAL",
+            "shared_success": "Result shared successfully",
+            "suspicious_status": "Marked SUSPICIOUS",
+            "title": "SahiDawa Medicine Verification Result",
+            "unknown_batch": "Unknown batch",
+            "unknown_manufacturer": "Unknown manufacturer",
+            "unknown_medicine": "Unknown medicine",
+            "verified_by": "by SahiDawa",
+            "verify_yourself": "Verify yourself",
+            "warning_prefix": "WARNING"
+        }
+    },
+    "chat": {
+        "actions": {
+            "pharmacy": {
+                "description": "Locate verified stores",
+                "label": "Find Pharmacy"
+            },
+            "scan": {
+                "description": "Verify authenticity",
+                "label": "Scan Medicine"
+            },
+            "symptoms": {
+                "description": "AI-assisted guidance",
+                "label": "Check Symptoms"
+            }
+        },
+        "footer": "For informational use only • Consult a doctor",
+        "listening": "Listening... speak clearly",
+        "placeholder": "Type your health concern...",
+        "quick_actions": "Quick actions",
+        "welcome": "Namaste, I'm SahiDawa, your trusted health companion. I can help you verify medicines, understand symptoms, or find nearby care. What would you like help with today?"
+    },
+    "chatbot": {
+        "placeholder": "Ask me about a medicine...",
+        "status": "Online",
+        "title": "SahiDawa AI",
+        "welcome": "Hi! I am the SahiDawa AI Assistant. How can I help you with your medicines today?"
+    },
+    "contact": {
+        "badge": "GSSoC 2026 Open Source Project",
+        "heroTitle": {
+            "prefix": "Get In",
+            "highlight": "Touch"
+        },
+        "heroSubtitle": "Have questions, ideas, or want to contribute? We would love to hear from you.",
+        "cards": {
+            "email": {
+                "title": "Email Us",
+                "description": "For privacy queries, partnerships, or serious concerns."
+            },
+            "discord": {
+                "title": "Discord Community",
+                "description": "Join contributors, ask questions, and get announcements.",
+                "cta": "Join Discord"
+            },
+            "bug": {
+                "title": "Report a Bug",
+                "description": "Found an issue? Open a GitHub issue and we will fix it fast.",
+                "cta": "Open Issue"
+            },
+            "contribute": {
+                "title": "Contribute",
+                "description": "Want to help build SahiDawa? Read our contributing guide.",
+                "cta": "Read Guide"
+            }
+        },
+        "quickLinks": {
+            "title": "Helpful Links",
+            "about": "About SahiDawa",
+            "privacy": "Privacy Policy",
+            "faq": "FAQ"
+        },
+        "footer": "SahiDawa is free, open-source, and built for 1.4 billion Indians. No ads. No premium. No data sold. Ever."
     }
 }
