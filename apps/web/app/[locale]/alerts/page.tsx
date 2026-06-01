@@ -122,26 +122,26 @@ export default function FullAlertsLogPage() {
             <div className="mb-6 flex flex-col gap-4 md:flex-row">
                 <div className="relative flex-1">
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <Search size={18} className="text-slate-400" />
+                        <Search size={18} className="text-(--color-text-muted)" />
                     </div>
                     <input
                         type="text"
                         placeholder="Search by Brand Name..."
                         value={brandSearch}
                         onChange={(e) => setBrandSearch(e.target.value)}
-                        className="block w-full rounded-xl border border-slate-300 bg-white p-3 pl-10 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
+                        className="block w-full rounded-xl border border-(--color-border-muted) bg-(--color-surface-muted) p-3 pl-10 text-sm text-(--color-text-primary) placeholder-(--color-text-muted) shadow-sm focus:border-emerald-500 focus:ring-emerald-500 focus:outline-hidden"
                     />
                 </div>
                 <div className="relative flex-1">
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <Globe size={18} className="text-slate-400" />
+                        <Globe size={18} className="text-(--color-text-muted)" />
                     </div>
                     <input
                         type="text"
                         placeholder="Filter by State/District..."
                         value={regionSearch}
                         onChange={(e) => setRegionSearch(e.target.value)}
-                        className="block w-full rounded-xl border border-slate-300 bg-white p-3 pl-10 text-sm shadow-sm focus:border-emerald-500 focus:ring-emerald-500"
+                        className="block w-full rounded-xl border border-(--color-border-muted) bg-(--color-surface-muted) p-3 pl-10 text-sm text-(--color-text-primary) placeholder-(--color-text-muted) shadow-sm focus:border-emerald-500 focus:ring-emerald-500 focus:outline-hidden"
                     />
                 </div>
             </div>
