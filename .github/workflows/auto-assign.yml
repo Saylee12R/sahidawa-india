@@ -45,6 +45,12 @@ jobs:
             // ── 2. Comment event: /assign command handler ───────────────────
             if (eventName !== 'issue_comment' || context.payload.action !== 'created') return;
 
+            // Skip PR comments (GitHub treats PR comments as issue_comment events)
+            if (context.payload.issue && context.payload.issue.pull_request) {
+              core.info('Comment is on a Pull Request. Skipping assignment.');
+              return;
+            }
+
             const commentBody = context.payload.comment.body;
             const issueNumber = context.issue.number;
             const commenter   = context.payload.comment.user.login;
