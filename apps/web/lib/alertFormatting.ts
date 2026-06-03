@@ -1,3 +1,7 @@
+function escapeRegExp(value: string): string {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 export function getVisibleAlertBatchNumber(
     composition: string | null | undefined,
     batchNumber: string | number | null | undefined
@@ -9,8 +13,9 @@ export function getVisibleAlertBatchNumber(
     }
 
     const normalizedComposition = String(composition ?? "").toLowerCase();
+    const batchTokenPattern = new RegExp(
+        `(^|[^a-z0-9])${escapeRegExp(normalizedBatchNumber.toLowerCase())}([^a-z0-9]|$)`
+    );
 
-    return normalizedComposition.includes(normalizedBatchNumber.toLowerCase())
-        ? null
-        : normalizedBatchNumber;
+    return batchTokenPattern.test(normalizedComposition) ? null : normalizedBatchNumber;
 }

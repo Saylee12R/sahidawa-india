@@ -73,6 +73,10 @@ describe("homepage i18n", () => {
         expect(
             getVisibleAlertBatchNumber("Paracetamol batch B-42 already listed", "b-42")
         ).toBeNull();
+        expect(getVisibleAlertBatchNumber("Paracetamol 500mg recall reported", "500")).toBe("500");
+        expect(
+            getVisibleAlertBatchNumber("Paracetamol batch: 500 already listed", "500")
+        ).toBeNull();
         expect(getVisibleAlertBatchNumber(null, 1024)).toBe("1024");
     });
 
