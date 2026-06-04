@@ -184,7 +184,7 @@ export default function ExpiryTrackerPage() {
             <main className="mx-auto max-w-6xl p-6 pt-32 md:pt-40">
                 <div className="mt-4 grid grid-cols-1 gap-8 md:grid-cols-3">
                     {/* Sidebar */}
-                    <div className="sticky top-32 h-fit rounded-2xl border border-(--color-border-muted) bg-(--color-surface-muted) p-6 shadow-sm md:col-span-1">
+                    <div className="md:sticky md:top-32 h-fit rounded-2xl border border-(--color-border-muted) bg-(--color-surface-muted) p-6 shadow-sm md:col-span-1">
                         <h2 className="mb-4 text-lg font-bold tracking-tight uppercase">
                             {t("addMedicine")}
                         </h2>
