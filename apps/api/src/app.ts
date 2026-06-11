@@ -203,7 +203,7 @@ app.use("/reports", reportsRouter);
 app.use("/api/pharmacies", pharmaciesRouter);
 app.use("/api/verify/batch", batchRouter);
 app.use("/api/verify", verifyRouter);
-app.use("/api/analytics", analyticsRoutes);
+app.use("/api/analytics", requireAuth, requireRole("admin", "moderator"), analyticsRoutes);
 app.use("/api/notifications", notificationsRouter);
 app.use("/api/v1/scan", scanRouter);
 app.use("/api/v1/lasa", lasaRouter);
