@@ -822,3 +822,4 @@
 | [#1746](https://github.com/RatLoopz/sahidawa-india/pull/1746) | 2026-06-12 | Backend | 25 | @dipexplorer | [View Doc](devtrack/2026-06/PR-1746-fix-security-resolve-codeql-vulnerabilities-sql-in.md) / [ADR](devtrack/adr/ADR-032-fix-security-resolve-codeql-vulnerabilities-sql-in.md) |
 | [#1705](https://github.com/RatLoopz/sahidawa-india/pull/1705) | 2026-06-12 | Frontend | 5 | @Yogender-verma | [View Doc](devtrack/2026-06/PR-1705-feat-login-improve-password-input-with-visibility-.md) |
 | [#1756](https://github.com/RatLoopz/sahidawa-india/pull/1756) | 2026-06-12 | DevOps | 8 | @dipexplorer | [View Doc](devtrack/2026-06/PR-1756-feat-workflow-implement-strict-creator-only-assign.md) |
+| [#1743](https://github.com/RatLoopz/sahidawa-india/pull/1743) | 2026-06-12 | Frontend | 5 | @Ayush2496 | [View Doc](devtrack/2026-06/PR-1743-feat-display-badge-for-low-confidence-limit-thresh.md) |
