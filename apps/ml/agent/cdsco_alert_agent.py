@@ -52,10 +52,11 @@ def scrape_cdsco_alerts():
         logging.info("No PDF links found on the alerts page.")
         return
         
-    recent_pdf = pdf_links[0]
-    
-    logging.info(f"Processing recent alert PDF: {recent_pdf}")
-    process_alert_pdf(recent_pdf)
+    # FIXED — process all PDFs:
+    logging.info(f"Found {len(pdf_links)} PDF(s) on alerts page. Processing all...")
+    for pdf_url in pdf_links:
+        logging.info(f"Processing alert PDF: {pdf_url}")
+        process_alert_pdf(pdf_url)
 
 def process_alert_pdf(pdf_url: str):
     try:
