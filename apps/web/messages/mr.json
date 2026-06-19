@@ -452,7 +452,15 @@
         "importError": "अवैध बॅकअप फाइल. कृपया वैध JSON बॅकअप अपलोड करा.",
         "statusExpired": "कालबाह्य",
         "statusExpiringSoon": "लवकरच कालबाह्य होईल ({days} दिवस)",
-        "statusSafe": "सुरक्षित"
+        "statusSafe": "सुरक्षित",
+        "exportCSV": "CSV निर्यात करा",
+        "exportPDF": "PDF निर्यात करा",
+        "print": "प्रिंट करा",
+        "csvExportSuccess": "CSV यशस्वीरित्या निर्यात केले",
+        "pdfExportSuccess": "PDF यशस्वीरित्या निर्यात केले",
+        "noMedicinesToDisplay": "दाखवण्यासाठी कोणतीही औषधे नाहीत",
+        "generatedOn": "फाइल. कृपया वैध JSON बॅकअ",
+        "deleteMedicine": "औषध हटवा"
     },
     "Login": {
         "brandSubtitle": "औषध सुरक्षा व्यासपीठ",
@@ -671,5 +679,28 @@
             "pregnancyHeading": "गर्भधारणा"
         },
         "disclaimer": "ही माहिती शैक्षणिक उद्देशांसाठी आहे आणि व्यावसायिक वैद्यकीय सल्ल्याचा पर्याय नाही."
+    },
+    "Health": {
+        "quickActions": "Quick actions",
+        "scanMedicine": "Scan Medicine",
+        "verifyAuthenticity": "Verify authenticity",
+        "checkSymptoms": "Check Symptoms",
+        "symptomGuidance": "AI-assisted guidance",
+        "findPharmacy": "Find Pharmacy",
+        "locateStores": "Locate verified stores",
+        "replyFallback": "I'm here to help! Could you rephrase that?",
+        "tooManyRequests": "Too many requests. Please try again in a few moments.",
+        "failedResponse": "Failed to generate AI response",
+        "genericError": "Something went wrong",
+        "returnHome": "Return to chat home",
+        "chatConversation": "Chat conversation",
+        "startVoice": "Start voice input",
+        "stopVoice": "Stop voice input",
+        "healthQuestion": "Type your health question",
+        "voiceBrowserRequired": "Voice input is not supported in this browser.",
+        "listening": "Listening... speak clearly",
+        "placeholder": "Type your health concern...",
+        "sendMessage": "Send message",
+        "footer": "For informational use only • Consult a doctor"
     }
 }

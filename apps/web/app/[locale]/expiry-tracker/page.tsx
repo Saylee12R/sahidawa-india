@@ -18,6 +18,8 @@ import {
     ScanLine,
     Bell,
     BellOff,
+    FileText,
+    Printer,
 } from "lucide-react";
 import { BarcodeScanner } from "@/components/scanner/BarcodeScanner";
 import { verifyMedicine } from "@/lib/api";
@@ -712,6 +714,69 @@ export default function ExpiryTrackerPage() {
         URL.revokeObjectURL(url);
     };
 
+    const handleExportPDF = async () => {
+        if (processedMedicines.length === 0) return;
+        const { jsPDF } = await import("jspdf");
+        const doc = new jsPDF();
+
+        doc.setFontSize(16);
+        doc.text("SahiDawa — Medicine Expiry Tracker", 14, 18);
+        doc.setFontSize(10);
+        doc.text(`${t("generatedOn")}: ${new Date().toLocaleDateString()}`, 14, 26);
+
+        const headers = ["Medicine Name", "Expiry Date", "Batch No.", "Status"];
+        const rows = processedMedicines.map((med) => [
+            med.name,
+            parseLocalDate(med.expiryDate).toLocaleDateString(),
+            med.batchNumber ?? "—",
+            getExpiryStatus(med.expiryDate).text,
+        ]);
+
+        try {
+            const autoTable = (await import("jspdf-autotable")).default;
+            autoTable(doc, {
+                head: [headers],
+                body: rows,
+                startY: 32,
+                styles: { fontSize: 9, cellPadding: 4 },
+                headStyles: { fillColor: [16, 185, 129], textColor: 255, fontStyle: "bold" },
+                alternateRowStyles: { fillColor: [245, 250, 248] },
+                columnStyles: { 0: { cellWidth: 70 } },
+            });
+        } catch {
+            let y = 36;
+            const colWidths = [70, 40, 35, 40];
+            const colX = [14, 84, 124, 159];
+
+            doc.setFontSize(9);
+            doc.setFont("helvetica", "bold");
+            headers.forEach((h, i) => doc.text(h, colX[i], y));
+            y += 2;
+            doc.line(14, y, 196, y);
+            y += 5;
+
+            doc.setFont("helvetica", "normal");
+            rows.forEach((row) => {
+                if (y > 275) {
+                    doc.addPage();
+                    y = 20;
+                }
+                row.forEach((cell, i) => {
+                    const text = doc.splitTextToSize(String(cell), colWidths[i] - 2);
+                    doc.text(text, colX[i], y);
+                });
+                y += 8;
+            });
+        }
+
+        doc.save("sahidawa_expiry_tracker.pdf");
+        toast.success(t("pdfExportSuccess") || "PDF Exported Successfully!");
+    };
+
+    const handlePrint = () => {
+        window.print();
+    };
+
     // Import
     const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
         setImportError(null);
@@ -946,6 +1011,22 @@ export default function ExpiryTrackerPage() {
 
                         {/* Import / Export */}
                         <div className="mt-6 flex flex-col gap-2">
+                            <button
+                                onClick={handleExportPDF}
+                                disabled={medicines.length === 0}
+                                aria-label={t("exportPDF")}
+                                className="flex items-center justify-center gap-2 rounded-xl border border-(--color-border-muted) py-2.5 text-sm font-semibold transition hover:bg-(--color-surface-page) disabled:opacity-40"
+                            >
+                                <FileText size={15} /> {t("exportPDF")}
+                            </button>
+                            <button
+                                onClick={handlePrint}
+                                disabled={medicines.length === 0}
+                                aria-label={t("print")}
+                                className="flex items-center justify-center gap-2 rounded-xl border border-(--color-border-muted) py-2.5 text-sm font-semibold transition hover:bg-(--color-surface-page) disabled:opacity-40"
+                            >
+                                <Printer size={15} /> {t("print")}
+                            </button>
                             <button
                                 onClick={handleExport}
                                 disabled={medicines.length === 0}

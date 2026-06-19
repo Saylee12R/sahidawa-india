@@ -170,29 +170,29 @@
             "disclaimer": "ꯗꯤꯁꯀ꯭ꯂꯦꯃꯔ",
             "default_recommendation": "ꯗꯣꯛꯇꯔ ꯅꯠꯇ꯭|ꯒꯥ ꯐꯥ|ꯃꯥꯁꯤꯁ꯭ꯠ ꯑꯃꯒꯤ ꯄꯥꯎꯇꯥꯛ ꯏꯟꯕꯤꯌꯨ꯫"
         },
-    "errors": {
-        "unsupported_title": "ꯈꯣꯟꯖꯦꯜꯒꯤ ꯏꯅꯄꯨꯠ ꯐꯪꯗ꯭ꯔꯦ",
-        "unsupported_message": "ꯕ꯭ꯔꯥꯎꯖꯔ ꯑꯁꯤꯅꯥ ꯉꯥꯡꯕꯥ ꯈꯪꯗꯣꯀꯄꯥ (ꯁ꯭ꯄꯤꯆ ꯔꯦꯀꯣꯒꯅꯤꯁꯟ) ꯃꯇꯦꯡ ꯄꯥꯡꯗ꯭ꯔꯤ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ Chrome ꯅꯠꯇ꯭ꯔꯒꯥ Edge ꯍꯣꯠꯅꯕꯤꯌꯨ꯫",
-        "language_not_supported_title": "ꯕ꯭ꯔꯥꯎꯖꯔ ꯑꯁꯤꯅꯥ ꯈꯣꯟꯖꯦꯜꯒꯤ ꯂꯣꯟ ꯑꯗꯨ ꯂꯧꯕꯥ ꯉꯃꯗꯦ",
-        "language_not_supported_message": "ꯕ꯭ꯔꯥꯎꯖꯔ ꯑꯁꯤꯗꯥ {language} ꯈꯣꯟꯖꯦꯜꯒꯤ ꯏꯅꯄꯨꯠ ꯑꯁꯤ ꯑꯣꯏꯊꯣꯛꯄꯥ ꯆꯪꯉꯥꯏ ꯑꯣꯏ꯫ Chrome ꯅꯠꯇ꯭|ꯒꯥ Edge ꯍꯣꯠꯅꯕꯤꯌꯨ, ꯅꯠꯇ꯭ꯔꯒꯥ ꯑꯣꯞꯄꯥ ꯈꯣꯟꯖꯦꯜꯒꯤ ꯂꯣꯟ ꯑꯃꯒꯥ ꯂꯣꯏꯅꯅꯥ ꯑꯅꯧꯕꯥ ꯆꯦꯛ ꯇꯧꯕꯥ ꯍꯧꯕꯤꯌꯨ꯫",
-        "permission_title": "ꯃꯥꯏꯛꯔꯣꯐꯣꯟ ꯁꯤꯖꯤꯟꯅꯕꯥ ꯊꯤꯡꯖꯤꯜꯂꯦ",
-        "permission_message": "ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯅꯈꯣꯌꯒꯤ ꯕ꯭ꯔꯥꯎꯖꯔ ꯁꯦꯇꯤꯡꯗꯥ ꯃꯥꯏꯛꯔꯣꯐꯣꯟ ꯁꯤꯖꯤꯟꯅꯕꯒꯤ ꯑꯌꯥꯕꯥ (ꯄꯔꯃꯤꯁꯟ) ꯄꯤꯕꯤꯌꯨ ꯑꯃꯁꯨꯡ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫",
-        "microphone_title": "ꯃꯥꯏꯛꯔꯣꯐꯣꯟ ꯐꯪꯗꯦ",
-        "microphone_message": "ꯅꯍꯥꯛꯀꯤ ꯃꯥꯏꯛꯔꯣꯐꯣꯟ ꯑꯗꯨ ꯁꯝꯅꯔꯦ ꯑꯃꯁꯨꯡ ꯕ꯭ꯔꯥꯎꯖꯔ ꯇꯦꯕ ꯑꯁꯤꯅꯥ ꯁꯤꯖꯤꯟꯅꯕꯥ ꯌꯥꯔꯦ ꯍꯥꯌꯕꯥ ꯆꯦꯛ ꯇꯧꯕꯤꯌꯨ꯫",
-        "network_title": "ꯀꯅꯦꯛꯁꯟꯒꯤ ꯑꯋꯥꯕꯥ ꯑꯃꯅꯥ ꯃꯔꯝ ꯑꯣꯏꯗꯨꯅꯥ ꯇꯥꯕꯥ ꯂꯦꯄꯈ꯭ꯔꯦ",
-        "network_message": "ꯅꯈꯣꯌꯒꯤ ꯕ꯭ꯔꯥꯎꯖꯔꯅꯥ ꯈꯣꯟꯖꯦꯜ ꯂꯧꯕꯥ ꯂꯣꯏꯁꯤꯅꯕꯥ ꯉꯃꯈꯤꯗꯦ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯅꯈꯣꯌꯒꯤ ꯀꯅꯦꯛꯁꯟ ꯆꯦꯛ ꯇꯧꯕꯤꯌꯨ ꯑꯃꯁꯨꯡ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫",
-        "no_speech_title": "ꯑꯩꯈꯣꯌꯅꯥ ꯑꯣꯗꯤꯑꯣ/ꯉꯥꯡꯕꯥ ꯑꯃꯠꯇꯥ ꯇꯥꯈꯤꯗꯦ",
-        "no_speech_message": "ꯇꯞꯊꯕꯥ ꯃꯐꯝ ꯑꯃꯗꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ ꯅꯠꯇ꯭ꯔꯒꯥ ꯃꯥꯏꯛꯔꯣꯐꯣꯟꯒꯥ ꯅꯀꯅꯅꯥ ꯉꯥꯡꯕꯤꯌꯨ꯫",
-        "generic_title": "ꯑꯔꯥꯅꯕꯥ ꯑꯃꯥ ꯊꯣꯀꯈ꯭ꯔꯦ",
-        "generic_message": "ꯑꯩꯈꯣꯌꯅꯥ ꯍꯟꯗ꯯ꯛ ꯅꯈꯣꯌꯒꯤ ꯈꯣꯟꯖꯦꯜꯒꯤ ꯏꯅꯄꯨꯠ ꯑꯁꯤ ꯊꯤꯖꯤꯅꯕꯥ ꯉꯃꯈꯤꯗꯦ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫",
-        "service_unavailable_title": "ꯈꯣꯟꯖꯦꯜꯒꯤ ꯁꯔꯚꯤꯁ ꯐꯪꯗ꯭ꯔꯦ",
-        "service_unavailable_message": "ꯑꯩꯈꯣꯌꯒꯤ ꯈꯣꯟꯖꯦꯜꯒꯤ ꯁꯔꯚꯔꯁꯤꯡꯗꯥ ꯍꯧꯖꯤꯛ ꯌꯥꯝꯅꯥ ꯊꯕꯛ ꯅꯦꯝꯂꯤ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ ꯅꯠꯇ꯭ꯔꯒꯥ ꯃꯗꯨꯒꯤ ꯃꯍꯨꯠꯇꯥ ꯅꯥꯕꯥ-ꯆꯤꯀꯄꯁꯤꯡ ꯏꯕꯤꯌꯨ꯫",
-        "timeout_title": "ꯈꯣꯟꯖꯦꯜꯒꯤ ꯔꯤꯀ꯭ꯋꯦꯁ꯭ꯠ ꯃꯇꯝ ꯂꯣꯏꯈ꯭ꯔꯦ (ꯇꯥꯏꯃꯑꯥꯎꯠ)",
-        "timeout_message": "ꯈꯣꯟꯖꯦꯜꯒꯤ ꯁꯔꯚꯤꯁ ꯑꯁꯤꯅꯥ ꯄꯥꯅꯈꯤꯕꯥ ꯃꯇꯝꯗꯒꯤ ꯍꯦꯟꯅꯥ ꯃꯇꯝ ꯂꯧꯔꯤ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ ꯅꯠꯇ꯭ꯔꯒꯥ ꯇꯦꯛꯁ꯭ꯠ ꯏꯅꯄꯨꯠꯇꯥ ꯍꯣꯡꯕꯤꯌꯨ꯫",
-        "api_title": "ꯁꯍꯤꯗꯋꯥ ꯑꯦ.ꯑꯥꯏ. ꯐꯪꯗ꯭ꯔꯦ",
-        "api_message": "ꯑꯩꯈꯣꯌꯅꯥ ꯍꯧꯖꯤꯛꯃꯛꯇꯗꯥ ꯃꯦꯗꯤꯀꯦꯜꯒꯤ ꯂꯝꯖꯤꯡ-ꯂꯝꯇꯥꯛ ꯐꯪꯕꯥ ꯉꯃꯈꯤꯗꯦ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯇꯥꯡꯀꯛ ꯑꯃꯒꯤ ꯃꯇꯨꯡꯗꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫"
-    }
-},
+        "errors": {
+            "unsupported_title": "ꯈꯣꯟꯖꯦꯜꯒꯤ ꯏꯅꯄꯨꯠ ꯐꯪꯗ꯭ꯔꯦ",
+            "unsupported_message": "ꯕ꯭ꯔꯥꯎꯖꯔ ꯑꯁꯤꯅꯥ ꯉꯥꯡꯕꯥ ꯈꯪꯗꯣꯀꯄꯥ (ꯁ꯭ꯄꯤꯆ ꯔꯦꯀꯣꯒꯅꯤꯁꯟ) ꯃꯇꯦꯡ ꯄꯥꯡꯗ꯭ꯔꯤ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ Chrome ꯅꯠꯇ꯭ꯔꯒꯥ Edge ꯍꯣꯠꯅꯕꯤꯌꯨ꯫",
+            "language_not_supported_title": "ꯕ꯭ꯔꯥꯎꯖꯔ ꯑꯁꯤꯅꯥ ꯈꯣꯟꯖꯦꯜꯒꯤ ꯂꯣꯟ ꯑꯗꯨ ꯂꯧꯕꯥ ꯉꯃꯗꯦ",
+            "language_not_supported_message": "ꯕ꯭ꯔꯥꯎꯖꯔ ꯑꯁꯤꯗꯥ {language} ꯈꯣꯟꯖꯦꯜꯒꯤ ꯏꯅꯄꯨꯠ ꯑꯁꯤ ꯑꯣꯏꯊꯣꯛꯄꯥ ꯆꯪꯉꯥꯏ ꯑꯣꯏ꯫ Chrome ꯅꯠꯇ꯭|ꯒꯥ Edge ꯍꯣꯠꯅꯕꯤꯌꯨ, ꯅꯠꯇ꯭ꯔꯒꯥ ꯑꯣꯞꯄꯥ ꯈꯣꯟꯖꯦꯜꯒꯤ ꯂꯣꯟ ꯑꯃꯒꯥ ꯂꯣꯏꯅꯅꯥ ꯑꯅꯧꯕꯥ ꯆꯦꯛ ꯇꯧꯕꯥ ꯍꯧꯕꯤꯌꯨ꯫",
+            "permission_title": "ꯃꯥꯏꯛꯔꯣꯐꯣꯟ ꯁꯤꯖꯤꯟꯅꯕꯥ ꯊꯤꯡꯖꯤꯜꯂꯦ",
+            "permission_message": "ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯅꯈꯣꯌꯒꯤ ꯕ꯭ꯔꯥꯎꯖꯔ ꯁꯦꯇꯤꯡꯗꯥ ꯃꯥꯏꯛꯔꯣꯐꯣꯟ ꯁꯤꯖꯤꯟꯅꯕꯒꯤ ꯑꯌꯥꯕꯥ (ꯄꯔꯃꯤꯁꯟ) ꯄꯤꯕꯤꯌꯨ ꯑꯃꯁꯨꯡ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫",
+            "microphone_title": "ꯃꯥꯏꯛꯔꯣꯐꯣꯟ ꯐꯪꯗꯦ",
+            "microphone_message": "ꯅꯍꯥꯛꯀꯤ ꯃꯥꯏꯛꯔꯣꯐꯣꯟ ꯑꯗꯨ ꯁꯝꯅꯔꯦ ꯑꯃꯁꯨꯡ ꯕ꯭ꯔꯥꯎꯖꯔ ꯇꯦꯕ ꯑꯁꯤꯅꯥ ꯁꯤꯖꯤꯟꯅꯕꯥ ꯌꯥꯔꯦ ꯍꯥꯌꯕꯥ ꯆꯦꯛ ꯇꯧꯕꯤꯌꯨ꯫",
+            "network_title": "ꯀꯅꯦꯛꯁꯟꯒꯤ ꯑꯋꯥꯕꯥ ꯑꯃꯅꯥ ꯃꯔꯝ ꯑꯣꯏꯗꯨꯅꯥ ꯇꯥꯕꯥ ꯂꯦꯄꯈ꯭ꯔꯦ",
+            "network_message": "ꯅꯈꯣꯌꯒꯤ ꯕ꯭ꯔꯥꯎꯖꯔꯅꯥ ꯈꯣꯟꯖꯦꯜ ꯂꯧꯕꯥ ꯂꯣꯏꯁꯤꯅꯕꯥ ꯉꯃꯈꯤꯗꯦ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯅꯈꯣꯌꯒꯤ ꯀꯅꯦꯛꯁꯟ ꯆꯦꯛ ꯇꯧꯕꯤꯌꯨ ꯑꯃꯁꯨꯡ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫",
+            "no_speech_title": "ꯑꯩꯈꯣꯌꯅꯥ ꯑꯣꯗꯤꯑꯣ/ꯉꯥꯡꯕꯥ ꯑꯃꯠꯇꯥ ꯇꯥꯈꯤꯗꯦ",
+            "no_speech_message": "ꯇꯞꯊꯕꯥ ꯃꯐꯝ ꯑꯃꯗꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ ꯅꯠꯇ꯭ꯔꯒꯥ ꯃꯥꯏꯛꯔꯣꯐꯣꯟꯒꯥ ꯅꯀꯅꯅꯥ ꯉꯥꯡꯕꯤꯌꯨ꯫",
+            "generic_title": "ꯑꯔꯥꯅꯕꯥ ꯑꯃꯥ ꯊꯣꯀꯈ꯭ꯔꯦ",
+            "generic_message": "ꯑꯩꯈꯣꯌꯅꯥ ꯍꯟꯗ꯯ꯛ ꯅꯈꯣꯌꯒꯤ ꯈꯣꯟꯖꯦꯜꯒꯤ ꯏꯅꯄꯨꯠ ꯑꯁꯤ ꯊꯤꯖꯤꯅꯕꯥ ꯉꯃꯈꯤꯗꯦ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫",
+            "service_unavailable_title": "ꯈꯣꯟꯖꯦꯜꯒꯤ ꯁꯔꯚꯤꯁ ꯐꯪꯗ꯭ꯔꯦ",
+            "service_unavailable_message": "ꯑꯩꯈꯣꯌꯒꯤ ꯈꯣꯟꯖꯦꯜꯒꯤ ꯁꯔꯚꯔꯁꯤꯡꯗꯥ ꯍꯧꯖꯤꯛ ꯌꯥꯝꯅꯥ ꯊꯕꯛ ꯅꯦꯝꯂꯤ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ ꯅꯠꯇ꯭ꯔꯒꯥ ꯃꯗꯨꯒꯤ ꯃꯍꯨꯠꯇꯥ ꯅꯥꯕꯥ-ꯆꯤꯀꯄꯁꯤꯡ ꯏꯕꯤꯌꯨ꯫",
+            "timeout_title": "ꯈꯣꯟꯖꯦꯜꯒꯤ ꯔꯤꯀ꯭ꯋꯦꯁ꯭ꯠ ꯃꯇꯝ ꯂꯣꯏꯈ꯭ꯔꯦ (ꯇꯥꯏꯃꯑꯥꯎꯠ)",
+            "timeout_message": "ꯈꯣꯟꯖꯦꯜꯒꯤ ꯁꯔꯚꯤꯁ ꯑꯁꯤꯅꯥ ꯄꯥꯅꯈꯤꯕꯥ ꯃꯇꯝꯗꯒꯤ ꯍꯦꯟꯅꯥ ꯃꯇꯝ ꯂꯧꯔꯤ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ ꯅꯠꯇ꯭ꯔꯒꯥ ꯇꯦꯛꯁ꯭ꯠ ꯏꯅꯄꯨꯠꯇꯥ ꯍꯣꯡꯕꯤꯌꯨ꯫",
+            "api_title": "ꯁꯍꯤꯗꯋꯥ ꯑꯦ.ꯑꯥꯏ. ꯐꯪꯗ꯭ꯔꯦ",
+            "api_message": "ꯑꯩꯈꯣꯌꯅꯥ ꯍꯧꯖꯤꯛꯃꯛꯇꯗꯥ ꯃꯦꯗꯤꯀꯦꯜꯒꯤ ꯂꯝꯖꯤꯡ-ꯂꯝꯇꯥꯛ ꯐꯪꯕꯥ ꯉꯃꯈꯤꯗꯦ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯇꯥꯡꯀꯛ ꯑꯃꯒꯤ ꯃꯇꯨꯡꯗꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫"
+        }
+    },
     "offline": {
         "bannerOffline": "ꯅꯍꯥꯛ ꯑꯣꯐꯂꯥꯏꯟ ꯑꯣꯏꯔꯤ",
         "descriptionOffline": "ꯅꯦꯇꯋꯥꯔꯛ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯐꯪꯂꯀꯄꯥ ꯃꯇꯃꯗꯥ ꯅꯍꯥꯛꯀꯤ ꯑꯍꯣꯡꯕꯁꯤꯡ ꯁꯤꯡꯛ (sync) ꯇꯧꯒꯅꯤ",
@@ -890,7 +890,7 @@
         "source": "ꯍꯧꯔꯛꯐꯝ:",
         "errorMessage": "ꯄꯨꯟꯅꯥ ꯆꯥꯕꯒꯤ ꯆꯦꯛ ꯇꯧꯕꯥ ꯃꯥꯌ ꯄꯥꯛꯈꯤꯗꯦ꯫ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫"
     },
-"ScanHistory": {
+    "ScanHistory": {
         "export_modal_title": "ꯁ꯭ꯀꯦꯟ ꯍꯤꯁ꯭ꯇ꯭ꯔꯤ ꯑꯦꯛꯁꯄꯣꯔꯠ ꯇꯧꯕꯥ",
         "export_range_label": "ꯇꯥꯡꯒꯤ ꯃꯇꯝ ꯈꯟꯕꯥ",
         "export_status_label": "ꯐꯤꯚꯝ (Status) ꯑꯣꯏꯅꯥ ꯈꯦꯠꯅꯍꯟꯕꯥ",
@@ -955,5 +955,28 @@
             "timeout": "ꯃꯐꯝ ꯊꯤꯕꯒꯤ ꯃꯇꯝ ꯍꯦꯟꯈꯔꯦ꯫",
             "generic": "ꯅꯍꯥꯛꯀꯤ ꯃꯐꯝ ꯂꯧꯕꯥ ꯌꯥꯗ꯭ꯔꯦ꯫"
         }
+    },
+    "Health": {
+        "quickActions": "Quick actions",
+        "scanMedicine": "Scan Medicine",
+        "verifyAuthenticity": "Verify authenticity",
+        "checkSymptoms": "Check Symptoms",
+        "symptomGuidance": "AI-assisted guidance",
+        "findPharmacy": "Find Pharmacy",
+        "locateStores": "Locate verified stores",
+        "replyFallback": "I'm here to help! Could you rephrase that?",
+        "tooManyRequests": "Too many requests. Please try again in a few moments.",
+        "failedResponse": "Failed to generate AI response",
+        "genericError": "Something went wrong",
+        "returnHome": "Return to chat home",
+        "chatConversation": "Chat conversation",
+        "startVoice": "Start voice input",
+        "stopVoice": "Stop voice input",
+        "healthQuestion": "Type your health question",
+        "voiceBrowserRequired": "Voice input is not supported in this browser.",
+        "listening": "Listening... speak clearly",
+        "placeholder": "Type your health concern...",
+        "sendMessage": "Send message",
+        "footer": "For informational use only • Consult a doctor"
     }
 }

@@ -58,6 +58,30 @@
         "language": "English",
         "more": "More"
     },
+    "Health": {
+        "quickActions": "Quick actions",
+        "scanMedicine": "Scan Medicine",
+        "verifyAuthenticity": "Verify authenticity",
+        "checkSymptoms": "Check Symptoms",
+        "symptomGuidance": "AI-assisted guidance",
+        "findPharmacy": "Find Pharmacy",
+        "locateStores": "Locate verified stores",
+        "replyFallback": "I'm here to help! Could you rephrase that?",
+        "tooManyRequests": "Too many requests. Please try again in a few moments.",
+        "failedResponse": "Failed to generate AI response",
+        "genericError": "Something went wrong",
+        "returnHome": "Return to chat home",
+        "chatConversation": "Chat conversation",
+        "startVoice": "Start voice input",
+        "stopVoice": "Stop voice input",
+        "healthQuestion": "Type your health question",
+        "voiceBrowserRequired": "Voice input is not supported in this browser.",
+        "listening": "Listening... speak clearly",
+        "placeholder": "Type your health concern...",
+        "sendMessage": "Send message",
+        "footer": "For informational use only • Consult a doctor"
+    },
+
     "Scan": {
         "calculateSavings": "Calculate Savings",
         "scanMedicine": "Scan Medicine",
@@ -564,7 +588,15 @@
         "dueStatus": "Due",
         "overdueStatus": "Overdue",
         "upcomingStatus": "Upcoming",
-        "markCompleteButton": "Mark completed"
+        "markCompleteButton": "Mark completed",
+        "exportCSV": "Export CSV",
+        "exportPDF": "Export PDF",
+        "print": "Print",
+        "csvExportSuccess": "CSV exported successfully",
+        "pdfExportSuccess": "PDF exported successfully",
+        "noMedicinesToDisplay": "No medicines to display",
+        "generatedOn": "Generated On",
+        "deleteMedicine": "Delete medicine"
     },
     "Login": {
         "brandSubtitle": "Medicine safety platform",

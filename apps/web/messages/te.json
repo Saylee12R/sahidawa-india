@@ -452,7 +452,15 @@
         "importError": "చెల్లని బ్యాకప్ ఫైల్. దయచేసి చెల్లుబాటు అయ్యే JSON బ్యాకప్‌ను అప్‌లోడ్ చేయండి.",
         "statusExpired": "గడువు ముగిసింది",
         "statusExpiringSoon": "త్వరలో గడువు ముగియనుంది ({days} రోజులు)",
-        "statusSafe": "సురక్షితం"
+        "statusSafe": "సురక్షితం",
+        "exportCSV": "CSVని ఎగుమతి చేయి",
+        "exportPDF": "PDFని ఎగుమతి చేయి",
+        "print": "ప్రింట్ చేయి",
+        "csvExportSuccess": "CSV విజయవంతంగా ఎగుమతి చేయబడింది",
+        "pdfExportSuccess": "PDF విజయవంతంగా ఎగుమతి చేయబడింది",
+        "noMedicinesToDisplay": "ప్రదర్శించడానికి ఎటువంటి మందులు లేవు",
+        "generatedOn": "లో గడువు ముగియనుం",
+        "deleteMedicine": "మందును తొలగించు"
     },
     "Login": {
         "brandSubtitle": "ఔషధ భద్రతా వేదిక",
@@ -671,5 +679,28 @@
             "pregnancyHeading": "గర్భధారణ"
         },
         "disclaimer": "ఈ సమాచారం విద్యాపరమైనది మాత్రమే; ఇది వృత్తిపరమైన వైద్య సలహాకు ప్రత్యామ్నాయం కాదు."
+    },
+    "Health": {
+        "quickActions": "Quick actions",
+        "scanMedicine": "Scan Medicine",
+        "verifyAuthenticity": "Verify authenticity",
+        "checkSymptoms": "Check Symptoms",
+        "symptomGuidance": "AI-assisted guidance",
+        "findPharmacy": "Find Pharmacy",
+        "locateStores": "Locate verified stores",
+        "replyFallback": "I'm here to help! Could you rephrase that?",
+        "tooManyRequests": "Too many requests. Please try again in a few moments.",
+        "failedResponse": "Failed to generate AI response",
+        "genericError": "Something went wrong",
+        "returnHome": "Return to chat home",
+        "chatConversation": "Chat conversation",
+        "startVoice": "Start voice input",
+        "stopVoice": "Stop voice input",
+        "healthQuestion": "Type your health question",
+        "voiceBrowserRequired": "Voice input is not supported in this browser.",
+        "listening": "Listening... speak clearly",
+        "placeholder": "Type your health concern...",
+        "sendMessage": "Send message",
+        "footer": "For informational use only • Consult a doctor"
     }
 }
