@@ -11,13 +11,15 @@ import { useRouter, useParams, useSearchParams } from "next/navigation";
 import {
     Pill,
     AlertCircle,
-    Loader2,
     DollarSign,
     Calendar,
     Sparkles,
     MapPin,
     ArrowRight,
 } from "lucide-react";
+// NEW: Import the card and skeleton
+import GenericAlternativeCard from "@/components/GenericAlternativeCard";
+import GenericAlternativeCardSkeleton from "@/components/GenericAlternativeCardSkeleton";
 
 async function searchMedicines(query: string): Promise<Medicine[]> {
     const q = query.trim();
@@ -253,13 +255,6 @@ function CalculatorPageContent() {
                     />
                 </section>
 
-                {loading && (
-                    <div className="flex items-center justify-center gap-3 py-12 text-emerald-600 dark:text-emerald-400">
-                        <Loader2 className="animate-spin" size={24} />
-                        <span className="text-sm font-bold">{translate("loading")}</span>
-                    </div>
-                )}
-
                 {error && (
                     <div className="flex items-center gap-3 rounded-2xl border border-red-500/20 bg-red-500/5 p-4 text-red-700 dark:text-red-400">
                         <AlertCircle size={20} className="shrink-0" />
@@ -318,128 +313,26 @@ function CalculatorPageContent() {
                             </div>
                         </section>
 
-                        {/* Substitutions & Comparisons Panel */}
+                        {/* Substitutions & Comparisons Panel - UPDATED with GenericAlternativeCard */}
                         <section className="space-y-4 rounded-2xl border border-(--color-border-muted) bg-(--color-surface-page) p-6 shadow-sm">
                             <h3 className="flex items-center gap-2 text-base font-bold text-emerald-700 dark:text-emerald-400">
                                 <Pill size={18} />
                                 {translate("alternativeTitle")}
                             </h3>
 
-                            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                                {/* Brand Details Card */}
-                                <div className="flex flex-col justify-between rounded-2xl border border-(--color-border-muted) bg-slate-50/50 p-5 dark:bg-slate-800/10">
-                                    <div className="space-y-2">
-                                        <div className="flex items-center justify-between">
-                                            <span className="block text-[10px] font-bold tracking-wider text-(--color-text-muted) uppercase">
-                                                {translate("brandTierTitle")}
-                                            </span>
-                                            <span className="dark:text-slate-350 rounded-full bg-slate-200/60 px-2 py-0.5 text-[10px] font-bold text-slate-700 dark:bg-slate-700">
-                                                {translate("mrpLabel")}
-                                            </span>
-                                        </div>
-                                        <h4 className="mt-1 block text-sm font-bold text-(--color-text-primary)">
-                                            {alternativeData.brand_name}
-                                        </h4>
-                                        <p className="truncate text-xs text-(--color-text-secondary)">
-                                            {selectedMedicine.manufacturer || "Commercial Lab"}
-                                        </p>
-                                        <p className="text-[11px] text-(--color-text-muted) italic">
-                                            {translate("brandTierDesc")}
-                                        </p>
-                                    </div>
-                                    <div className="mt-4 flex items-baseline justify-between border-t border-(--color-border-muted) pt-3">
-                                        <span className="text-xs font-medium text-slate-500">
-                                            {translate("brandPriceLabel")}
-                                        </span>
-                                        <span className="text-base font-bold text-slate-700 dark:text-slate-300">
-                                            ₹{brandPrice.toFixed(2)}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* Generic Alternative Card */}
-                                <div className="flex flex-col justify-between rounded-2xl border border-sky-500/20 bg-sky-50/20 p-5 dark:bg-sky-950/5">
-                                    <div className="space-y-2">
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-sky-650 dark:text-sky-450 block text-[10px] font-bold tracking-wider uppercase">
-                                                {translate("genericTierTitle")}
-                                            </span>
-                                            {genericAlternative?.isEstimated && (
-                                                <span className="text-sky-850 rounded bg-sky-100/80 px-1.5 py-0.5 text-[9px] font-bold dark:bg-sky-950 dark:text-sky-300">
-                                                    {translate("estimatedLabel")}
-                                                </span>
-                                            )}
-                                        </div>
-                                        <h4 className="mt-1 block text-sm font-bold text-sky-800 dark:text-sky-300">
-                                            {genericAlternative?.brand_name ||
-                                                `${selectedMedicine.generic_name}`}
-                                        </h4>
-                                        <p className="truncate text-xs text-sky-700/80 dark:text-sky-400/80">
-                                            {genericAlternative?.manufacturer || "Generic Lab"}
-                                        </p>
-                                        <p className="text-sky-650 text-[11px] italic dark:text-sky-400/60">
-                                            {translate("genericTierDesc")}
-                                        </p>
-                                    </div>
-                                    <div className="mt-4 border-t border-sky-500/10 pt-3">
-                                        <div className="mb-1 flex items-baseline justify-between">
-                                            <span className="text-sky-750 text-xs font-medium dark:text-sky-400">
-                                                Price
-                                            </span>
-                                            <span className="text-sky-850 text-base font-bold dark:text-sky-300">
-                                                ₹{genericPrice.toFixed(2)}
-                                            </span>
-                                        </div>
-                                        {brandPrice > genericPrice && (
-                                            <div className="text-sky-750 dark:text-sky-450 flex items-center justify-between text-[10px] font-bold">
-                                                <span>Save per strip:</span>
-                                                <span>
-                                                    ₹{(brandPrice - genericPrice).toFixed(2)}
-                                                </span>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-
-                                {/* Jan Aushadhi Generic Card */}
-                                <div className="flex flex-col justify-between rounded-2xl border border-emerald-500/25 bg-emerald-50/40 p-5 dark:bg-emerald-950/10">
-                                    <div className="space-y-2">
-                                        <div className="flex items-center justify-between">
-                                            <span className="block flex items-center gap-1 text-[10px] font-bold tracking-wider text-emerald-600 uppercase dark:text-emerald-400">
-                                                <Sparkles size={10} className="text-emerald-500" />
-                                                {translate("janAushadhiTierTitle")}
-                                            </span>
-                                            <span className="rounded-full bg-emerald-600 px-2 py-0.5 text-[9px] font-extrabold tracking-wide text-white uppercase">
-                                                {translate("bestValue")}
-                                            </span>
-                                        </div>
-                                        <h4 className="mt-1 block text-sm font-bold text-emerald-800 dark:text-emerald-300">
-                                            {alternativeData.alternative_name}
-                                        </h4>
-                                        <p className="text-emerald-750 truncate text-xs dark:text-emerald-400/80">
-                                            Jan Aushadhi (PMBJP)
-                                        </p>
-                                        <p className="text-[11px] text-emerald-700 italic dark:text-emerald-400/60">
-                                            {translate("janAushadhiTierDesc")}
-                                        </p>
-                                    </div>
-                                    <div className="mt-4 border-t border-emerald-500/10 pt-3">
-                                        <div className="mb-1 flex items-baseline justify-between">
-                                            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                                                {translate("genericPriceLabel")}
-                                            </span>
-                                            <span className="text-lg font-black text-emerald-700 dark:text-emerald-400">
-                                                ₹{janAushadhiPrice.toFixed(2)}
-                                            </span>
-                                        </div>
-                                        {brandPrice > janAushadhiPrice && (
-                                            <div className="dark:text-emerald-450 flex items-center justify-between text-[10px] font-black text-emerald-700">
-                                                <span>Save per strip:</span>
-                                                <span>₹{savingsPerPurchase.toFixed(2)}</span>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
+                            {/* NEW: Use GenericAlternativeCard with skeleton loader */}
+                            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                                {loading
+                                    ? // Show 6 skeleton cards while loading
+                                      Array.from({ length: 6 }).map((_, index) => (
+                                          <GenericAlternativeCardSkeleton
+                                              key={`skeleton-${index}`}
+                                          />
+                                      ))
+                                    : // Show the actual card
+                                      alternativeData && (
+                                          <GenericAlternativeCard alternative={alternativeData} />
+                                      )}
                             </div>
                         </section>
 
@@ -455,7 +348,7 @@ function CalculatorPageContent() {
                                         {translate("perPurchaseSavings")}
                                     </span>
                                     <span className="mt-1 block text-lg font-black text-slate-800 dark:text-slate-200">
-                                        ₹{savingsPerPurchase.toFixed(2)}
+                                        Γé╣{savingsPerPurchase.toFixed(2)}
                                     </span>
                                 </div>
 
@@ -465,7 +358,7 @@ function CalculatorPageContent() {
                                         {translate("monthlySavings")}
                                     </span>
                                     <span className="mt-1 block text-xl font-extrabold text-emerald-700 dark:text-emerald-400">
-                                        ₹{monthlySavings.toFixed(2)}
+                                        Γé╣{monthlySavings.toFixed(2)}
                                     </span>
                                 </div>
 
@@ -475,7 +368,7 @@ function CalculatorPageContent() {
                                         {translate("yearlySavings")}
                                     </span>
                                     <span className="mt-1 block text-xl font-extrabold text-teal-700 dark:text-teal-400">
-                                        ₹{yearlySavings.toFixed(2)}
+                                        Γé╣{yearlySavings.toFixed(2)}
                                     </span>
                                 </div>
                             </div>
@@ -486,7 +379,7 @@ function CalculatorPageContent() {
                                     <div className="flex justify-between text-xs font-bold text-slate-500 dark:text-slate-400">
                                         <span>{translate("costPerMonthBrand")}</span>
                                         <span className="font-extrabold text-slate-800 dark:text-slate-200">
-                                            ₹{brandMonthlyCost.toFixed(2)}
+                                            Γé╣{brandMonthlyCost.toFixed(2)}
                                         </span>
                                     </div>
                                     <div className="h-3 w-full rounded-full bg-slate-100 dark:bg-slate-800">
@@ -501,7 +394,7 @@ function CalculatorPageContent() {
                                     <div className="flex justify-between text-xs font-bold text-slate-500 dark:text-slate-400">
                                         <span>{translate("costPerMonthGeneric")}</span>
                                         <span className="font-extrabold text-slate-800 dark:text-slate-200">
-                                            ₹{genericMonthlyCost.toFixed(2)}
+                                            Γé╣{genericMonthlyCost.toFixed(2)}
                                         </span>
                                     </div>
                                     <div className="h-3 w-full rounded-full bg-slate-100 dark:bg-slate-800">
@@ -521,7 +414,7 @@ function CalculatorPageContent() {
                                     <div className="flex justify-between text-xs font-bold text-slate-500 dark:text-slate-400">
                                         <span>{translate("costPerMonthJanAushadhi")}</span>
                                         <span className="font-extrabold text-slate-800 dark:text-slate-200">
-                                            ₹{janAushadhiMonthlyCost.toFixed(2)}
+                                            Γé╣{janAushadhiMonthlyCost.toFixed(2)}
                                         </span>
                                     </div>
                                     <div className="h-3 w-full rounded-full bg-slate-100 dark:bg-slate-800">
