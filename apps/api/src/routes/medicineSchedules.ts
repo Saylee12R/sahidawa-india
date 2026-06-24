@@ -3,6 +3,7 @@ import { z } from "zod";
 import { supabase } from "../db/client";
 import { requireAuth } from "../middleware/auth";
 import type { AuthenticatedRequest } from "../middleware/auth";
+import logger from "../utils/logger";
 
 const router = Router();
 
@@ -89,6 +90,7 @@ router.get("/", requireAuth, async (req: AuthenticatedRequest, res: Response) =>
 
         res.json({ schedules: data ?? [] });
     } catch (err) {
+        logger.error("Error listing schedules", { error: err });
         res.status(500).json({ error: "An unexpected error occurred" });
     }
 });
@@ -115,6 +117,7 @@ router.get("/:id", requireAuth, async (req: AuthenticatedRequest, res: Response)
 
         res.json({ schedule: data });
     } catch (err) {
+        logger.error("Error fetching schedule", { error: err, scheduleId: req.params.id });
         res.status(500).json({ error: "An unexpected error occurred" });
     }
 });
@@ -147,6 +150,7 @@ router.post("/", requireAuth, async (req: AuthenticatedRequest, res: Response) =
 
         res.status(201).json({ schedule: data });
     } catch (err) {
+        logger.error("Error creating schedule", { error: err });
         res.status(500).json({ error: "An unexpected error occurred" });
     }
 });
@@ -183,6 +187,7 @@ router.put("/:id", requireAuth, async (req: AuthenticatedRequest, res: Response)
 
         res.json({ schedule: data });
     } catch (err) {
+        logger.error("Error updating schedule", { error: err, scheduleId: req.params.id });
         res.status(500).json({ error: "An unexpected error occurred" });
     }
 });
@@ -203,6 +208,7 @@ router.delete("/:id", requireAuth, async (req: AuthenticatedRequest, res: Respon
 
         res.json({ success: true });
     } catch (err) {
+        logger.error("Error deleting schedule", { error: err, scheduleId: req.params.id });
         res.status(500).json({ error: "An unexpected error occurred" });
     }
 });
@@ -257,6 +263,7 @@ router.post("/:id/doses", requireAuth, async (req: AuthenticatedRequest, res: Re
 
         res.json({ dose: data });
     } catch (err) {
+        logger.error("Error logging dose", { error: err, scheduleId: req.params.id });
         res.status(500).json({ error: "An unexpected error occurred" });
     }
 });
@@ -279,6 +286,7 @@ router.get("/:id/doses", requireAuth, async (req: AuthenticatedRequest, res: Res
 
         res.json({ doses: data ?? [] });
     } catch (err) {
+        logger.error("Error fetching dose logs", { error: err, scheduleId: req.params.id });
         res.status(500).json({ error: "An unexpected error occurred" });
     }
 });
@@ -344,6 +352,7 @@ router.get("/:id/stats", requireAuth, async (req: AuthenticatedRequest, res: Res
             doses: doseLogs ?? [],
         });
     } catch (err) {
+        logger.error("Error fetching adherence stats", { error: err, scheduleId: req.params.id });
         res.status(500).json({ error: "An unexpected error occurred" });
     }
 });
@@ -419,6 +428,7 @@ router.get("/today/summary", requireAuth, async (req: AuthenticatedRequest, res:
             schedules: todaySchedules,
         });
     } catch (err) {
+        logger.error("Error fetching today's summary", { error: err });
         res.status(500).json({ error: "An unexpected error occurred" });
     }
 });
