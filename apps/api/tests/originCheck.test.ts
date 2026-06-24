@@ -1,4 +1,3 @@
-import { describe, it, expect } from "vitest";
 import { isAllowedOrigin, ALLOWED_ORIGINS } from "../src/utils/originCheck";
 
 describe("isAllowedOrigin", () => {
