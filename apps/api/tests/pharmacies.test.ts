@@ -343,6 +343,8 @@ describe("GET /api/pharmacies/in-bounds", () => {
             bound_west: 77.0,
             bound_north: 28.8,
             bound_east: 77.4,
+            query_limit: 500,
+            query_offset: 100,
         });
 
         expect(mockedSupabase.from).not.toHaveBeenCalled();

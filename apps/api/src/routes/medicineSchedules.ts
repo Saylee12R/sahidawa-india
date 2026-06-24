@@ -4,6 +4,7 @@ import { supabase } from "../db/client";
 import { requireAuth } from "../middleware/auth";
 import type { AuthenticatedRequest } from "../middleware/auth";
 import logger from "../utils/logger";
+import { redisClient } from "../utils/redis";
 
 const router = Router();
 
@@ -261,6 +262,15 @@ router.post("/:id/doses", requireAuth, async (req: AuthenticatedRequest, res: Re
             return;
         }
 
+        if (redisClient.isOpen) {
+            const cacheKey = `schedules:summary:${req.user!.id}:${parsed.data.log_date}`;
+            try {
+                await redisClient.del(cacheKey);
+            } catch (redisErr) {
+                logger.error("Failed to invalidate cache", { error: redisErr, cacheKey });
+            }
+        }
+
         res.json({ dose: data });
     } catch (err) {
         logger.error("Error logging dose", { error: err, scheduleId: req.params.id });
@@ -374,6 +384,19 @@ router.get("/today/summary", requireAuth, async (req: AuthenticatedRequest, res:
         const today = queryResult.data.date || istToday;
         const nowTime = queryResult.data.time || istNowTime;
 
+        const cacheKey = `schedules:summary:${req.user!.id}:${today}`;
+        if (redisClient.isOpen) {
+            try {
+                const cached = await redisClient.get(cacheKey);
+                if (cached) {
+                    res.json(JSON.parse(cached));
+                    return;
+                }
+            } catch (redisErr) {
+                logger.error("Redis get error for today/summary", { error: redisErr, cacheKey });
+            }
+        }
+
         const { data: schedules, error: schedError } = await supabase
             .from("medicine_schedules")
             .select("*")
@@ -438,10 +461,20 @@ router.get("/today/summary", requireAuth, async (req: AuthenticatedRequest, res:
             };
         });
 
-        res.json({
+        const responseData = {
             date: today,
             schedules: todaySchedules,
-        });
+        };
+
+        if (redisClient.isOpen) {
+            try {
+                await redisClient.set(cacheKey, JSON.stringify(responseData), { EX: 86400 });
+            } catch (redisErr) {
+                logger.error("Redis set error for today/summary", { error: redisErr, cacheKey });
+            }
+        }
+
+        res.json(responseData);
     } catch (err) {
         logger.error("Error fetching today's summary", { error: err });
         res.status(500).json({ error: "An unexpected error occurred" });

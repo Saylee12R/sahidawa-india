@@ -206,7 +206,8 @@ describe("trimHistoryByTokens", () => {
             { role: "assistant", content: "Hi there" },
         ];
         const trimmed = trimHistoryByTokens(messages, 100);
-        expect(trimmed).toHaveLength(2);
+        expect(trimmed.trimmedMessages).toHaveLength(2);
+        expect(trimmed.droppedMessages).toHaveLength(0);
     });
 
     it("truncates older messages when total tokens exceed the limit", () => {
@@ -222,8 +223,12 @@ describe("trimHistoryByTokens", () => {
         // "Recent message X" is roughly 3 tokens each + 4 overhead = 7 tokens per msg -> 14 total.
         // If maxTokens is 20, it should only keep the last two.
         const trimmed = trimHistoryByTokens(messages, 20);
-        expect(trimmed).toHaveLength(2);
-        expect(trimmed[0].content).toBe("Recent message 1");
+        expect(trimmed.trimmedMessages).toHaveLength(2);
+        expect(trimmed.trimmedMessages[0].content).toBe("Recent message 1");
+        expect(trimmed.droppedMessages).toHaveLength(1);
+        expect(trimmed.droppedMessages[0].content).toBe(
+            "This is a very old message that should be truncated because it pushes the limit."
+        );
     });
 
     it("always keeps at least the last message even if it exceeds the limit", () => {
@@ -235,9 +240,11 @@ describe("trimHistoryByTokens", () => {
             },
         ];
         const trimmed = trimHistoryByTokens(messages, 5); // extremely small limit
-        expect(trimmed).toHaveLength(1);
-        expect(trimmed[0].content).toBe(
+        expect(trimmed.trimmedMessages).toHaveLength(1);
+        expect(trimmed.trimmedMessages[0].content).toBe(
             "Very long recent message that exceeds the limit on its own"
         );
+        expect(trimmed.droppedMessages).toHaveLength(1);
+        expect(trimmed.droppedMessages[0].content).toBe("Short old message");
     });
 });
