@@ -116,6 +116,20 @@ export async function broadcastDistrictAlerts(): Promise<void> {
         for (const alert of alerts) {
             logger.info(`Broadcasting counterfeit alert for district: ${alert.district}`);
 
+            const { error: markError } = await supabase
+                .from("district_alerts")
+                .update({ broadcasted: true })
+                .eq("id", alert.id);
+
+            if (markError) {
+                logger.error({
+                    message: "Failed to mark district alert as broadcasted, skipping send to avoid duplicate delivery on next tick",
+                    error: markError,
+                    alertId: alert.id,
+                });
+                continue;
+            }
+
             let from = 0;
             let to = PAGE_SIZE - 1;
             let hasMore = true;

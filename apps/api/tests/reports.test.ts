@@ -477,5 +477,69 @@ describe("Reports API Routes", () => {
                 expect(response.status).toBe(200);
             }
         });
+
+        it("resets broadcasted=false on the district_alerts upsert when threshold is crossed", async () => {
+            const updatedReport = {
+                id: "report-id-123",
+                district: "Delhi",
+                reported_brand_name: "Fake Medicine",
+                status: "verified_fake",
+                created_at: "2026-06-01T00:00:00Z",
+            };
+
+            let upsertPayload: Record<string, unknown> | null = null;
+            const originalFrom = mockedSupabase.from;
+
+            (mockedSupabase.from as jest.Mock) = jest.fn().mockImplementation((table: string) => {
+                if (table === "counterfeit_reports") {
+                    return {
+                        select: jest.fn().mockImplementation((_cols?: string, opts?: any) => {
+                            if (opts && opts.head) {
+                                return {
+                                    eq: jest.fn().mockReturnValue({
+                                        eq: jest.fn().mockReturnValue({
+                                            eq: jest.fn().mockResolvedValue({ count: 5, error: null }),
+                                        }),
+                                    }),
+                                };
+                            }
+                            return {
+                                eq: jest.fn().mockReturnValue({
+                                    single: jest.fn().mockResolvedValue({ data: { id: "report-id-123" }, error: null }),
+                                }),
+                            };
+                        }),
+                        update: jest.fn().mockReturnValue({
+                            eq: jest.fn().mockReturnValue({
+                                select: jest.fn().mockReturnValue({
+                                    single: jest.fn().mockResolvedValue({ data: updatedReport, error: null }),
+                                }),
+                            }),
+                        }),
+                    };
+                }
+                if (table === "district_alerts") {
+                    return {
+                        upsert: jest.fn().mockImplementation((payload: Record<string, unknown>) => {
+                            upsertPayload = payload;
+                            return Promise.resolve({ data: null, error: null });
+                        }),
+                    };
+                }
+                return {};
+            });
+
+            const response = await request(app)
+                .patch("/api/reports/report-id-123/status")
+                .set("Authorization", "Bearer admin-token")
+                .set("X-Admin", "true")
+                .send({ status: "verified_fake" });
+
+            mockedSupabase.from = originalFrom;
+
+            expect(response.status).toBe(200);
+            expect(upsertPayload).not.toBeNull();
+            expect(upsertPayload).toHaveProperty("broadcasted", false);
+        });
     });
 });

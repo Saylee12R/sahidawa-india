@@ -275,6 +275,7 @@ reportsRouter.patch(
                             district: data.district,
                             medicine_name: data.reported_brand_name,
                             alert_level: alertLevel,
+                            broadcasted: false,
                         },
                         { onConflict: "district" }
                     );
