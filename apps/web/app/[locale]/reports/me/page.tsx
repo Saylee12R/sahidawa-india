@@ -274,7 +274,7 @@ export default function MyReportsPage() {
                     </div>
                     <button
                         type="button"
-                        onClick={fetchMine}
+                        onClick={() => fetchMine()}
                         disabled={state.kind === "loading"}
                         aria-label={t("refresh_button_aria_label")}
                         className="rounded-full border border-(--color-border-muted) bg-(--color-surface-page) p-2.5 text-(--color-text-secondary) shadow-sm transition hover:bg-(--color-surface-muted) hover:text-(--color-text-primary) disabled:opacity-50"
