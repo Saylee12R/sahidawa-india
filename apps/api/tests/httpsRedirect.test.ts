@@ -187,7 +187,7 @@ describe("HTTPS Redirect Middleware", () => {
                 .get("/test?filter[status]=active&sort=-createdAt&page=2")
                 .set("X-Forwarded-Proto", "http")
                 .expect(308)
-                .expect("Location", /filter%5Bstatus%5D=active&sort=-createdAt&page=2/)
+                .expect("Location", /filter\[status\]=active&sort=-createdAt&page=2/)
                 .end(done);
         });
     });
