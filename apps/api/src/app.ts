@@ -84,7 +84,6 @@ app.set("trust proxy", 1); // Trust first proxy (Nginx) — fixes req.ip for rat
 app.use(httpsRedirect);
 
 app.use(compression());
-app.use(cors(createCorsOptions()));
 initExpiryCron();
 // ── Global Middleware Configuration ───────────────────────────────────────
 app.use(cookieParser());
