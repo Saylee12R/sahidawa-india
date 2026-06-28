@@ -81,7 +81,10 @@
             "shared_success": "निकाल यशस्वीपणान शेअर केलो",
             "copy_success": "निकाल क्लिपबोर्डाचेर कॉपी केलो",
             "failure": "ह्या वेळार हो निकाल शेअर करूंक शकना"
-        }
+        },
+        "batch_recalled_title": "This batch has been recalled",
+        "batch_recalled_body": "Please do not use this medicine. Return it to your pharmacy immediately.",
+        "save_to_abha": "Save to ABHA Record"
     },
     "BackToTopButton": {
         "label": "परतून वयर वचात"

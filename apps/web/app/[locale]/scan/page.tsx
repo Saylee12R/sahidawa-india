@@ -457,11 +457,11 @@ export default function ScanPage() {
                                             {verifyResult.batch_status === "recalled" && (
                                                 <div className="w-full max-w-sm rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-900/30 dark:bg-red-900/10">
                                                     <p className="text-sm font-bold text-red-700 dark:text-red-400">
-                                                        This batch has been recalled
+                                                        {tScan("batch_recalled_title")}
                                                     </p>
+
                                                     <p className="mt-1 text-xs text-red-600 dark:text-red-300">
-                                                        Please do not use this medicine. Return it
-                                                        to your pharmacy immediately.
+                                                        {tScan("batch_recalled_body")}
                                                     </p>
                                                 </div>
                                             )}
@@ -480,7 +480,7 @@ export default function ScanPage() {
                                                 onClick={handleSaveToABHA}
                                                 className="w-full rounded-xl bg-emerald-600 px-4 py-3 font-semibold text-white hover:bg-emerald-700"
                                             >
-                                                Save to ABHA Record
+                                                {tScan("save_to_abha")}
                                             </button>
                                         </div>
                                     )}

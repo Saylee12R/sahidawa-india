@@ -135,7 +135,11 @@
         "dosageForm": "Dosage Form",
         "composition": "Composition",
         "ScanBarcode": "Scan Barcode",
-        "offlineVerify": "Queue Scan"
+        "offlineVerify": "Queue Scan",
+
+        "batch_recalled_title": "This batch has been recalled",
+        "batch_recalled_body": "Please do not use this medicine. Return it to your pharmacy immediately.",
+        "save_to_abha": "Save to ABHA Record"
     },
     "BackToTopButton": {
         "label": "Back to top"
