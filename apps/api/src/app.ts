@@ -89,6 +89,7 @@ initExpiryCron();
 app.use(cookieParser());
 
 // ── CSRF Protection (double-submit cookie pattern) ─────────────────────────
+app.use(cors(createCorsOptions()));
 // csrf-csrf is recognized by CodeQL as a valid CSRF defense unlike custom header checks.
 const ANON_SESSION_COOKIE = "csrf_anon_id";
 
@@ -153,7 +154,6 @@ app.use(
 );
 
 // Security: restrict CORS to known origins and allow credentials for secure cookies
-app.use(cors(createCorsOptions()));
 
 app.use(express.json({ limit: "1mb" }));
 
