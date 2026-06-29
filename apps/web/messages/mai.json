@@ -122,10 +122,7 @@
         "genericName": "जेनेरिक नाम",
         "dosageForm": "खुराक प्रकार",
         "composition": "संरचना",
-        "offlineVerify": "स्कैन कतारमे राखू",
-        "batch_recalled_title": "This batch has been recalled",
-        "batch_recalled_body": "Please do not use this medicine. Return it to your pharmacy immediately.",
-        "save_to_abha": "Save to ABHA Record"
+        "offlineVerify": "स्कैन कतारमे राखू"
     },
     "BackToTopButton": {
         "label": "ऊपर जाऊ"

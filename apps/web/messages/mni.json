@@ -83,10 +83,7 @@
         "genericName": "ꯖꯦꯅꯦꯔꯤꯛ ꯃꯤꯡ",
         "dosageForm": "ꯍꯤꯗꯥꯛꯀꯤ ꯃꯑꯣꯡ (ꯗꯣꯁꯦꯖ)",
         "composition": "ꯀꯝꯄꯣꯖꯤꯁꯟ",
-        "offlineVerify": "ꯁ꯭ꯀꯦꯟ ꯀ꯭ꯌꯨꯗꯥ ꯊꯝꯕꯥ",
-        "batch_recalled_title": "This batch has been recalled",
-        "batch_recalled_body": "Please do not use this medicine. Return it to your pharmacy immediately.",
-        "save_to_abha": "Save to ABHA Record"
+        "offlineVerify": "ꯁ꯭ꯀꯦꯟ ꯀ꯭ꯌꯨꯗꯥ ꯊꯝꯕꯥ"
     },
     "BackToTopButton": {
         "label": "ꯃꯊꯛꯇꯥ ꯑꯃꯨꯛ ꯍꯟꯕꯥ"

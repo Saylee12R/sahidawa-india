@@ -77,10 +77,7 @@
             "shared_success": "ফলাফল সফলভাৱে শ্বেয়াৰ কৰা হৈছে",
             "copy_success": "ফলাফল ক্লিপবৰ্ডত কপি কৰা হৈছে",
             "failure": "এই মুহূৰ্তত ফলাফল শ্বেয়াৰ কৰিব পৰা নগ'ল"
-        },
-        "batch_recalled_title": "This batch has been recalled",
-        "batch_recalled_body": "Please do not use this medicine. Return it to your pharmacy immediately.",
-        "save_to_abha": "Save to ABHA Record"
+        }
     },
     "BackToTopButton": {
         "label": "ওপৰলৈ যাওক"

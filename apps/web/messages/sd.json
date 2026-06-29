@@ -83,10 +83,7 @@
         "genericName": "عام نالو",
         "dosageForm": "دوا جي شڪل",
         "composition": "ترڪيب",
-        "offlineVerify": "اسڪين قطار ۾ شامل ڪريو",
-        "batch_recalled_title": "This batch has been recalled",
-        "batch_recalled_body": "Please do not use this medicine. Return it to your pharmacy immediately.",
-        "save_to_abha": "Save to ABHA Record"
+        "offlineVerify": "اسڪين قطار ۾ شامل ڪريو"
     },
     "BackToTopButton": {
         "label": "مٿي وڃو"

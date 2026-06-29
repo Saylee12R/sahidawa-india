@@ -166,10 +166,7 @@
         "dosageForm": "खुराक का रूप",
         "composition": "सामग्री",
         "ScanBarcode": "बारकोड स्कैन करें",
-        "offlineVerify": "स्कैन कतार में जोड़ें",
-        "batch_recalled_title": "This batch has been recalled",
-        "batch_recalled_body": "Please do not use this medicine. Return it to your pharmacy immediately.",
-        "save_to_abha": "Save to ABHA Record"
+        "offlineVerify": "स्कैन कतार में जोड़ें"
     },
     "BackToTopButton": {
         "label": "ऊपर जाएँ"

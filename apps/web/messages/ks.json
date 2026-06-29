@@ -67,10 +67,7 @@
             "shared_success": "نَتیجہِ شیئر گۆو کٲمیابی سان",
             "copy_success": "نَتیجہِ گۆو کِلیپ بورڈَس مَنٛز کاپی",
             "failure": "اَتھ وَعکِے نَتیجہِ شیئر کَرنَس مَنٛز رۆکاوَٹ"
-        },
-        "batch_recalled_title": "This batch has been recalled",
-        "batch_recalled_body": "Please do not use this medicine. Return it to your pharmacy immediately.",
-        "save_to_abha": "Save to ABHA Record"
+        }
     },
     "BackToTopButton": {
         "label": "ہیر کُن واپس"
