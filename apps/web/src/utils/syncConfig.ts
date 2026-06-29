@@ -1,20 +1,23 @@
-export const SYNC_TIERS = {
-  TIER_1: {
-    name: "Core Matrix",
-    description: "Critical drug signatures and minimal text translations",
-    priority: 1,
-    maxSizeMB: 2
+export interface SyncTier {
+  tier: number;
+  description: string;
+  assets: string[];
+}
+
+export const syncConfig: SyncTier[] = [
+  {
+    tier: 1,
+    description: 'Core localization keys and essential medicine data templates',
+    assets: ['en-core.json', 'hi-core.json', 'med-defaults.json']
   },
-  TIER_2: {
-    name: "Regional Bundle",
-    description: "Local pharmacy directories and primary regional languages",
-    priority: 2,
-    maxSizeMB: 5
+  {
+    tier: 2,
+    description: 'Regional language datasets and expanded offline directories',
+    assets: ['gu-regional.json', 'te-regional.json', 'or-regional.json']
   },
-  TIER_3: {
-    name: "Extended Media",
-    description: "High-resolution medicine images and audio guidance tracks",
-    priority: 3,
-    maxSizeMB: 20
+  {
+    tier: 3,
+    description: 'High-resolution instructional media and non-critical assets',
+    assets: ['media-guide.mp4', 'assets-extended.json']
   }
-};
+];
